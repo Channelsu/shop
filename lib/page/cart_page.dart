@@ -6,8 +6,9 @@ class CartPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.black,
       body: Padding(
-        padding: const EdgeInsets.all(50),
+        padding: const EdgeInsets.all(28),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             SizedBox(height: 30,),
             Row(
@@ -21,10 +22,20 @@ class CartPage extends StatelessWidget {
                 ),
               ],
             ),
+            Expanded(child: Container(color: Colors.green, child: buildCardItems(context))),
           ],
         ),
       ),
       
+    );
+  }
+
+  Widget buildCardItems(BuildContext context) {
+    return Center(
+      child: Text(
+        'マイカートは空です',
+        style: TextStyle(color: Colors.white, fontSize: 20),
+      ),
     );
   }
 }
