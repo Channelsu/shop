@@ -23,6 +23,25 @@ class CartPage extends StatelessWidget {
               ],
             ),
             Expanded(child: Container(color: Colors.green, child: buildCardItems(context))),
+            SizedBox(height: 16,),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Text('合計', style: TextStyle(color: Colors.white, fontSize: 18),),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: <Widget>[
+                    Text('320', style: TextStyle(color: Colors.white, fontSize: 32, fontWeight: FontWeight.bold),),
+                    SizedBox(width: 4,),
+                    Text('円', style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),)
+                  ],
+                ),
+              ],
+            ),
+            SizedBox(height: 24,),
+            // RaisedButton(
+            //   child: ,
+            // ),
           ],
         ),
       ),
