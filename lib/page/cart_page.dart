@@ -39,9 +39,12 @@ class CartPage extends StatelessWidget {
               ],
             ),
             SizedBox(height: 24,),
-            // RaisedButton(
-            //   child: ,
-            // ),
+            RaisedButton(
+              color: Theme.of(context).primaryColor,
+              shape: StadiumBorder(),
+              child: Text('次へ', style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),),
+              onPressed: () {},
+            ),
           ],
         ),
       ),
