@@ -39,11 +39,15 @@ class CartPage extends StatelessWidget {
               ],
             ),
             SizedBox(height: 24,),
-            RaisedButton(
-              color: Theme.of(context).primaryColor,
-              shape: StadiumBorder(),
-              child: Text('次へ', style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),),
-              onPressed: () {},
+            Container(
+              height: 50,
+              width: double.infinity,
+              child: RaisedButton(
+                color: Theme.of(context).primaryColor,
+                shape: StadiumBorder(),
+                child: Text('次へ', style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),),
+                onPressed: () {},
+              ),
             ),
           ],
         ),
@@ -53,11 +57,33 @@ class CartPage extends StatelessWidget {
   }
 
   Widget buildCardItems(BuildContext context) {
-    return Center(
-      child: Text(
-        'マイカートは空です',
-        style: TextStyle(color: Colors.white, fontSize: 20),
-      ),
-    );
+    return buildCartItem();
+    // return Center(
+    //   child: Text(
+    //     'マイカートは空です',
+    //     style: TextStyle(color: Colors.white, fontSize: 20),
+    //   ),
+    // );
   }
+
+  Widget buildCartItem() => ListTile(
+    leading: CircleAvatar(
+      backgroundImage: AssetImage('assets/monster.png'),
+    ),
+    title: Row(
+      children: <Widget>[
+        Text('1個', style: TextStyle(color: Colors.white),),
+        SizedBox(width: 10,),
+        Expanded(
+          child: Text(
+            'モンスター',
+            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+            overflow: TextOverflow.ellipsis,
+            maxLines: 1,
+          )
+        ),
+      ],
+    ),
+    trailing: Text('180円', style: TextStyle(color: Colors.white)),
+  );
 }
