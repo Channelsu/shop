@@ -58,15 +58,79 @@ class CartPage extends StatelessWidget {
   }
 
   Widget buildCardItems(BuildContext context) {
-    return buildCartItem(
-      CartItem(
-        id: '1',
-        title: 'モンスター',
-        description: 'エナジードリンクです。',
-        price: 180,
-        imgUrl: 'assets/monster.png',
-        quantity: 2,
-      )
+    return ListView(
+      children: <Widget>[
+        buildCartItem(
+          CartItem(
+            id: '1',
+            title: 'モンスター',
+            description: 'エナジードリンクです。',
+            price: 180,
+            imgUrl: 'assets/monster.png',
+            quantity: 2,
+          )
+        ),
+        buildCartItem(
+          CartItem(
+            id: '1',
+            title: 'モンスター',
+            description: 'エナジードリンクです。',
+            price: 180,
+            imgUrl: 'assets/monster.png',
+            quantity: 2,
+          )
+        ),
+        buildCartItem(
+          CartItem(
+            id: '1',
+            title: 'モンスター',
+            description: 'エナジードリンクです。',
+            price: 180,
+            imgUrl: 'assets/monster.png',
+            quantity: 2,
+          )
+        ),
+        buildCartItem(
+          CartItem(
+            id: '1',
+            title: 'モンスター',
+            description: 'エナジードリンクです。',
+            price: 180,
+            imgUrl: 'assets/monster.png',
+            quantity: 2,
+          )
+        ),
+        buildCartItem(
+          CartItem(
+            id: '1',
+            title: 'モンスター',
+            description: 'エナジードリンクです。',
+            price: 180,
+            imgUrl: 'assets/monster.png',
+            quantity: 2,
+          )
+        ),
+        buildCartItem(
+          CartItem(
+            id: '1',
+            title: 'モンスター',
+            description: 'エナジードリンクです。',
+            price: 180,
+            imgUrl: 'assets/monster.png',
+            quantity: 2,
+          )
+        ),
+        buildCartItem(
+          CartItem(
+            id: '1',
+            title: 'モンスター',
+            description: 'エナジードリンクです。',
+            price: 180,
+            imgUrl: 'assets/monster.png',
+            quantity: 2,
+          )
+        ),
+      ],
     );
   }
 
