@@ -73,6 +73,46 @@ class CartPage extends StatelessWidget {
         buildCartItem(
           CartItem(
             id: '1',
+            title: 'コーラ',
+            description: 'ドリンクです。',
+            price: 100,
+            imgUrl: 'assets/cocacola.png',
+            quantity: 2,
+          )
+        ),
+        buildCartItem(
+          CartItem(
+            id: '1',
+            title: 'モンスター',
+            description: 'エナジードリンクです。',
+            price: 180,
+            imgUrl: 'assets/monster.png',
+            quantity: 2,
+          )
+        ),
+        buildCartItem(
+          CartItem(
+            id: '1',
+            title: 'モンスター',
+            description: 'エナジードリンクです。',
+            price: 180,
+            imgUrl: 'assets/monster.png',
+            quantity: 2,
+          )
+        ),
+        buildCartItem(
+          CartItem(
+            id: '1',
+            title: 'モンスター',
+            description: 'エナジードリンクです。',
+            price: 180,
+            imgUrl: 'assets/monster.png',
+            quantity: 2,
+          )
+        ),
+        buildCartItem(
+          CartItem(
+            id: '1',
             title: 'モンスター',
             description: 'エナジードリンクです。',
             price: 180,
