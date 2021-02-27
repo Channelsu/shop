@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shop/model/cart_item.dart';
 
 class CartPage extends StatelessWidget {
   @override
@@ -57,26 +58,29 @@ class CartPage extends StatelessWidget {
   }
 
   Widget buildCardItems(BuildContext context) {
-    return buildCartItem();
-    // return Center(
-    //   child: Text(
-    //     'マイカートは空です',
-    //     style: TextStyle(color: Colors.white, fontSize: 20),
-    //   ),
-    // );
+    return buildCartItem(
+      CartItem(
+        id: '1',
+        title: 'モンスター',
+        description: 'エナジードリンクです。',
+        price: 180,
+        imgUrl: 'assets/monster.png',
+        quantity: 2,
+      )
+    );
   }
 
-  Widget buildCartItem() => ListTile(
+  Widget buildCartItem(CartItem cartItem) => ListTile(
     leading: CircleAvatar(
-      backgroundImage: AssetImage('assets/monster.png'),
+      backgroundImage: AssetImage(cartItem.imgUrl),
     ),
     title: Row(
       children: <Widget>[
-        Text('1個', style: TextStyle(color: Colors.white),),
+        Text('${cartItem.quantity}個', style: TextStyle(color: Colors.white),),
         SizedBox(width: 10,),
         Expanded(
           child: Text(
-            'モンスター',
+            cartItem.title,
             style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
             overflow: TextOverflow.ellipsis,
             maxLines: 1,
@@ -84,6 +88,6 @@ class CartPage extends StatelessWidget {
         ),
       ],
     ),
-    trailing: Text('180円', style: TextStyle(color: Colors.white)),
+    trailing: Text('${cartItem.price}円', style: TextStyle(color: Colors.white)),
   );
 }
