@@ -19,6 +19,7 @@ class MyApp extends StatelessWidget {
       title: title,
       theme: ThemeData(
         primaryColor: Colors.deepOrange,
+        primaryColorDark: Colors.white,
       ),
       home: CartPage(),
     ),
