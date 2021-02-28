@@ -24,6 +24,38 @@ class ShopProvider with ChangeNotifier {
         imgUrl: 'assets/mountdew.png',
         quantity: 3,
       ),
+      '3' : CartItem(
+        id: '3',
+        title: 'コカコーラ',
+        description: 'ドリンクです。',
+        price: 100,
+        imgUrl: 'assets/cocacola.png',
+        quantity: 3,
+      ),
+      '4' : CartItem(
+        id: '4',
+        title: 'ペプシコーラ',
+        description: 'ドリンクです。',
+        price: 100,
+        imgUrl: 'assets/pepsi.png',
+        quantity: 1,
+      ),
+      '5' : CartItem(
+        id: '5',
+        title: 'レッドブル',
+        description: 'エナジードリンクです。',
+        price: 210,
+        imgUrl: 'assets/redbull.png',
+        quantity: 3,
+      ),
+      '6' : CartItem(
+        id: '6',
+        title: 'セブンアップ',
+        description: 'ドリンクです。',
+        price: 150,
+        imgUrl: 'assets/sevenup.png',
+        quantity: 3,
+      ),
     };
   }
 
@@ -34,5 +66,7 @@ class ShopProvider with ChangeNotifier {
   set items(Map<String, CartItem> value) {
     _items = value;
   }
+
+  int get itemCount => _items.length;
 
 }
