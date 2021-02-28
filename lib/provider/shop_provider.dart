@@ -7,7 +7,24 @@ class ShopProvider with ChangeNotifier {
   Map<String, CartItem> _items;
 
   ShopProvider() {
-    _items = {};
+    _items = {
+      '1' : CartItem(
+        id: '1',
+        title: 'モンスター',
+        description: 'エナジードリンクです。',
+        price: 180,
+        imgUrl: 'assets/monster.png',
+        quantity: 2,
+      ),
+      '2' : CartItem(
+        id: '2',
+        title: 'マウンテンデュー',
+        description: 'エナジードリンクです。',
+        price: 200,
+        imgUrl: 'assets/mountdew.png',
+        quantity: 3,
+      ),
+    };
   }
 
   // ゲッター

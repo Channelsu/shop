@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:shop/model/cart_item.dart';
+import 'package:shop/provider/shop_provider.dart';
 
 class CartPage extends StatelessWidget {
   @override
@@ -23,7 +25,12 @@ class CartPage extends StatelessWidget {
                 ),
               ],
             ),
-            Expanded(child: Container(color: Colors.green, child: buildCardItems(context))),
+            Expanded(
+              child: Container(
+                // color: Colors.green,
+                child: buildCardItems(context),
+              )
+            ),
             SizedBox(height: 16,),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -58,130 +65,25 @@ class CartPage extends StatelessWidget {
   }
 
   Widget buildCardItems(BuildContext context) {
-    return ListView(
-      children: <Widget>[
-        buildCartItem(
-          CartItem(
-            id: '1',
-            title: 'モンスター',
-            description: 'エナジードリンクです。',
-            price: 180,
-            imgUrl: 'assets/monster.png',
-            quantity: 2,
-          )
-        ),
-        buildCartItem(
-          CartItem(
-            id: '1',
-            title: 'コーラ',
-            description: 'ドリンクです。',
-            price: 100,
-            imgUrl: 'assets/cocacola.png',
-            quantity: 2,
-          )
-        ),
-        buildCartItem(
-          CartItem(
-            id: '1',
-            title: 'モンスター',
-            description: 'エナジードリンクです。',
-            price: 180,
-            imgUrl: 'assets/monster.png',
-            quantity: 2,
-          )
-        ),
-        buildCartItem(
-          CartItem(
-            id: '1',
-            title: 'モンスター',
-            description: 'エナジードリンクです。',
-            price: 180,
-            imgUrl: 'assets/monster.png',
-            quantity: 2,
-          )
-        ),
-        buildCartItem(
-          CartItem(
-            id: '1',
-            title: 'モンスター',
-            description: 'エナジードリンクです。',
-            price: 180,
-            imgUrl: 'assets/monster.png',
-            quantity: 2,
-          )
-        ),
-        buildCartItem(
-          CartItem(
-            id: '1',
-            title: 'モンスター',
-            description: 'エナジードリンクです。',
-            price: 180,
-            imgUrl: 'assets/monster.png',
-            quantity: 2,
-          )
-        ),
-        buildCartItem(
-          CartItem(
-            id: '1',
-            title: 'モンスター',
-            description: 'エナジードリンクです。',
-            price: 180,
-            imgUrl: 'assets/monster.png',
-            quantity: 2,
-          )
-        ),
-        buildCartItem(
-          CartItem(
-            id: '1',
-            title: 'モンスター',
-            description: 'エナジードリンクです。',
-            price: 180,
-            imgUrl: 'assets/monster.png',
-            quantity: 2,
-          )
-        ),
-        buildCartItem(
-          CartItem(
-            id: '1',
-            title: 'モンスター',
-            description: 'エナジードリンクです。',
-            price: 180,
-            imgUrl: 'assets/monster.png',
-            quantity: 2,
-          )
-        ),
-        buildCartItem(
-          CartItem(
-            id: '1',
-            title: 'モンスター',
-            description: 'エナジードリンクです。',
-            price: 180,
-            imgUrl: 'assets/monster.png',
-            quantity: 2,
-          )
-        ),
-        buildCartItem(
-          CartItem(
-            id: '1',
-            title: 'モンスター',
-            description: 'エナジードリンクです。',
-            price: 180,
-            imgUrl: 'assets/monster.png',
-            quantity: 2,
-          )
-        ),
-      ],
-    );
+    final provider = Provider.of<ShopProvider>(context);
+
+    if(provider.items.isEmpty) {
+      return Center(
+        child: Text('マイカートは空です', style: TextStyle(color: Colors.white, fontSize: 20),),
+      );
+    } else {
+      return ListView(
+        children: provider.items.values.map(buildCardItem).toList(),
+      );
+    }
   }
 
-  Widget buildCartItem(CartItem cartItem) => ListTile(
+  Widget buildCardItem(CartItem cartItem) => ListTile(
     leading: CircleAvatar(
       backgroundImage: AssetImage(cartItem.imgUrl),
     ),
     title: Row(
       children: <Widget>[
-        Text('${cartItem.quantity}個', style: TextStyle(color: Colors.white),),
-        SizedBox(width: 10,),
         Expanded(
           child: Text(
             cartItem.title,
@@ -190,8 +92,10 @@ class CartPage extends StatelessWidget {
             maxLines: 1,
           )
         ),
+        SizedBox(width: 10,),
+        Text('${cartItem.quantity}個', style: TextStyle(color: Colors.white),),
       ],
     ),
-    trailing: Text('${cartItem.price}円', style: TextStyle(color: Colors.white)),
+    trailing: Text('${cartItem.price * cartItem.quantity}円', style: TextStyle(color: Colors.white)),
   );
 }
