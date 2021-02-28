@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shop/page/products_page.dart';
 import 'package:shop/provider/shop_provider.dart';
 import 'package:shop/page/cart_page.dart';
 import 'package:shop/provider/shop_provider.dart';
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
         primaryColor: Colors.deepOrange,
         primaryColorDark: Colors.white,
       ),
-      home: CartPage(),
+      home: ProductsPage(), // CartPage(),
     ),
   );
 }
